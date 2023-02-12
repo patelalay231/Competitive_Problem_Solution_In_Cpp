@@ -10,4 +10,4 @@ i'm strating my journey in competitive coding here i'll try to regulary upload a
 also with solution i'll try to uplode problem and problem link to.
 
 Goal:
-  -500+ problems in next six months
+  #500+ problems in next six months
