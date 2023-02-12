@@ -1,1 +1,6 @@
-1
+Elements present in the multiset: 1 2 3 4 5 5 6 7 8 9 10 
+2 is present in multiset
+Elements after deleting the first element: 2 3 4 5 5 6 7 8 9 10 
+The size of the multiset is: 10
+The multiset is not empty 
+Size of the multiset after clearing all the elements: 0
