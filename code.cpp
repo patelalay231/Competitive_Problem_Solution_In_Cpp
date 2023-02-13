@@ -55,19 +55,20 @@ int main() {
     #ifndef ONLINE_JUDGE
         freopen("Error.txt","w",stderr);
     #endif
-    int n=5;
-    for(int i=0;i<n;i++){
-            for(int j=n-1;j>i;j--){
-                cout << " ";
-            }
-            for(int j=0;j<=i;j++){
-                cout << "*";
-            }
-            for(int j=0;j<i;j++){
-                cout << "";
-            }
-            cout << endl;
+    int count=0,temp,N;
+    cin >> N;
+    int copyN=N;
+        while(N!=0){
+            temp = N%10;
+            if(temp == 0 ||copyN%temp==0)
+                count++;
+            debug(N)
+            debug(temp)
+            N/=10;
+            debug(N)
         }
+
+    cout << count;
     return 0;
 }
 
