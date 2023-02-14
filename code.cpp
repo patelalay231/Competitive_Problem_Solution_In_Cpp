@@ -57,18 +57,22 @@ int main() {
     #endif
     int count=0,temp,N;
     cin >> N;
-    int copyN=N;
-        while(N!=0){
-            temp = N%10;
-            if(temp == 0 ||copyN%temp==0)
-                count++;
-            debug(N)
-            debug(temp)
-            N/=10;
-            debug(N)
+    int num=N,sumOfDiv=0,ans=0;
+    for(int i=1;i<=num;i++){
+        sumOfDiv=0;
+        for(int j=1;j<=sqrt(i);j++){
+            if(i%j==0){
+                if(i/j==j){
+                    sumOfDiv+=j;
+                }
+                else{
+                    sumOfDiv+=(j+i/j);
+                }
+            }
         }
-
-    cout << count;
+        ans+=sumOfDiv;
+    }
+    cout << ans;
     return 0;
 }
 
