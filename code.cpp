@@ -55,24 +55,22 @@ int main() {
     #ifndef ONLINE_JUDGE
         freopen("Error.txt","w",stderr);
     #endif
-    int count=0,temp,N;
-    cin >> N;
-    int num=N,sumOfDiv=0,ans=0;
-    for(int i=1;i<=num;i++){
-        sumOfDiv=0;
-        for(int j=1;j<=sqrt(i);j++){
-            if(i%j==0){
-                if(i/j==j){
-                    sumOfDiv+=j;
-                }
-                else{
-                    sumOfDiv+=(j+i/j);
-                }
-            }
+    vector<int> arr = {13,9,2,4,1};
+    int insertedElement;
+    int j;
+    for(int i=1;i<arr.size();i++){
+        insertedElement = arr[i];
+        j=i-1;
+        while(j>=0 && insertedElement<arr[j]){
+            arr[j+1] = arr[j];
+            j--;
         }
-        ans+=sumOfDiv;
+        arr[j+1] = insertedElement;
     }
-    cout << ans;
+
+    for(auto it : arr)
+        cout << it << " ";
+    
     return 0;
 }
 
