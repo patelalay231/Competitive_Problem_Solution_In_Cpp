@@ -49,14 +49,47 @@ template <class T> void _print(stack <T> v) {cerr << "[ "; while(!v.empty()) {T 
 ll power(ll x, ll y) { ll res = 1; while (y) { if (y&1){ res = (res * x); } y = y >> 1; x = (x * x); } return res; }
 ll powermod(ll x, ll y, ll m) { int res = 1; x %= MOD; if (x == 0) return 0; while (y > 0) { if (y & 1){ res = (res*x) % MOD;} y = y>>1; x = (x*x) % MOD; } return res; }
 
-vector<int> mergeSort(vector<int> arr,int start,int end);
-vector<int> merge(vector<int> arr1,vector<int> arr2);
+int binarySearch(vector<int>& arr,int start,int end,int target);
 
-int main() {
-    #ifndef ONLINE_JUDGE
+int main(){
+	#ifndef ONLINE_JUDGE
         freopen("Error.txt","w",stderr);
     #endif
-    
-    return 0;
+
+    vector<int> arr = {10,20,30,40,50,60,70,80,90,100};
+    int end = arr.size()-1;
+
+    binarySearch(arr,0,end,90);
+    binarySearch(arr,0,end,100);
+    binarySearch(arr,0,end,1);
+    binarySearch(arr,0,end,110);
+    binarySearch(arr,0,end,20);
+
+	return 0;
 }
 
+int binarySearch(vector<int>& arr,int start,int end,int target){
+    int mid = start + (end - start) / 2;
+
+    // 1.check mid element is target element
+    // 2.if mid element is smaller than target then call again bs(arr,mid+1,end,target)
+    // 3.if mid element is greater than target then call again bs(arr,mid+1,end,target)
+    // 4.if element not present in list then check does mid index == start 
+    //   or end if then check element and stop.
+
+    if(start>end){
+        cout << target <<" is not present\n";
+        return 1;
+    }
+    else if(arr[mid] == target){
+        cout << "Index of element " << target << " is " << mid << endl;
+        return mid;
+    }
+    else if(arr[mid] < target){
+        return binarySearch(arr,mid+1,end,target);
+    }
+    else if(arr[mid] > target){
+        return binarySearch(arr,start,mid-1,target);
+    }
+    return 1;
+}

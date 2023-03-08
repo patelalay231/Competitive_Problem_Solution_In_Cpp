@@ -49,14 +49,10 @@ template <class T> void _print(stack <T> v) {cerr << "[ "; while(!v.empty()) {T 
 ll power(ll x, ll y) { ll res = 1; while (y) { if (y&1){ res = (res * x); } y = y >> 1; x = (x * x); } return res; }
 ll powermod(ll x, ll y, ll m) { int res = 1; x %= MOD; if (x == 0) return 0; while (y > 0) { if (y & 1){ res = (res*x) % MOD;} y = y>>1; x = (x*x) % MOD; } return res; }
 
-vector<int> mergeSort(vector<int> arr,int start,int end);
-vector<int> merge(vector<int> arr1,vector<int> arr2);
-
-int main() {
-    #ifndef ONLINE_JUDGE
+int main(){
+	#ifndef ONLINE_JUDGE
         freopen("Error.txt","w",stderr);
     #endif
-    
-    return 0;
-}
 
+	return 0;
+}
